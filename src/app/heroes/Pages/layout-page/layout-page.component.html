@@ -1,0 +1,44 @@
+
+<!--Esto es la barra lateral-->
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
+    <mat-toolbar color="primary">
+      <span>Menu</span>
+      <span class="spacer"></span> <!--Clase propia en el style.css general (pilla todo el espacio disponible)-->
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of sidebaritems"
+      [routerLink]="item.url"
+      (click)="sidenav.toggle()"
+      >
+      <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+      {{item.label}}
+    </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+<!--Esta es la barra superior -->
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <button mat-button>
+      LogOut
+    </button>
+
+
+  </mat-toolbar>
+  <div class="container p-2">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
+
+
+
