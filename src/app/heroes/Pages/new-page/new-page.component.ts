@@ -22,4 +22,13 @@ export class NewPageComponent {
       {id: 'DC Comics', desc:'DC-Comics'},
       {id: 'Marvel Comics', desc:'Marvel-Comics'}
   ];
+
+
+
+  onSubmit():void {
+
+    console.log({formIsValid: this.herFrom.valid,
+      value: this.herFrom.getRawValue()
+    })
+  }
 }
